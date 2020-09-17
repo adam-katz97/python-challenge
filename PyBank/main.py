@@ -7,7 +7,7 @@ ProfitLoss = []
 total = 0
 plOld = 0
 plNew = 0
-average = plNew-plOld
+
 moneyChange = []
 totChange = 0
 
@@ -21,7 +21,9 @@ with open(csvpath) as csvfile:
         
         total += int(row[1])
         
-    
+    final_day = int(ProfitLoss[-1])
+    (first_day) = int(ProfitLoss[0])
+    average = float((final_day-first_day)/(totMonth-1))
    
     
    
