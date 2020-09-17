@@ -24,12 +24,13 @@ with open(csvpath) as csvfile:
     final_day = int(ProfitLoss[-1])
     (first_day) = int(ProfitLoss[0])
     average = float((final_day-first_day)/(totMonth-1))
-   
+    moneyTime = dict(zip(Date, ProfitLoss))
+
+    gain = max(moneyTime, key=moneyTime.get)
+    loss = min(moneyTime, key=moneyTime.get)
     
-   
     print("Total months: " + str(totMonth))
     print("Total: $" + str(total))
     print("Average change: $" + str(average))
-    print("Greatest increase: ")
-
-    
+    print("Greatest increase: " + str((gain, moneyTime[gain]))) 
+    print("Greatest decrease: " + str((loss, moneyTime[loss])))
