@@ -22,17 +22,18 @@ with open(csvpath) as csvfile:
         totVote = len(voter_ID)
     
     result = set(candidate)
-    
-
-
-      
-    
-        
-
-
+    win_num = 0
+    winner = ""
+    for i in result:
+        if candidate.count(i) > win_num:
+            win_num = candidate.count(i)
+            winner = i
 
     print("Election Results")
     print("-----------------------------------------")
     print('Total Votes: ', totVote)
     for i in result:
         print(i + ": " + str(round(((candidate.count(i)/totVote)*100), 2))+ "% " + str(candidate.count(i)))
+    print("-----------------------------------------")
+    print("Winner: " + winner)
+    print("-----------------------------------------")
